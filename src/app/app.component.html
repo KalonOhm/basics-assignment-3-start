@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <ol>
+        <li>Add A button which says 'Display Details'</li>
+        <li>Add a paragraph with any content of your choice (e.g. 'Secret Password = tuna')</li>
+        <li>Toggle the displaying of that paragraph with the button created in the first step</li>
+        <li>Log all button clicks in an array and output that array below the secret paragraph (maybe log a timestamp or simply an incrementing number)</li>
+        <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
+      </ol>
+      <br>
+      <hr>
+      <button class="btn btn-info"
+        (click)="onClickDisplayParagraph()">Display Details</button>
+      <br><br>
+      <p *ngIf="displayParagraph">I am a paragraph of content. Huzzah!</p>
+      <p class="arrayPresent"
+      *ngFor="let log of logArray"
+      [ngStyle]="{backgroundColor: log >=5 ? 'blue' : 'transparent'}"
+      [ngClass]="{whiteText: log >=5 ? true : false}">{{ log }}</p>
+      <!-- log >= 5 worked without the ternary -->
+    </div>
+  </div>
+</div>
+
+<!-- could have done (click)="displayParagraph = !displayParagraph" -->
